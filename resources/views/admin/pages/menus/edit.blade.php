@@ -337,6 +337,12 @@
                                             <input type="text" class="form-control" name="name"
                                                 placeholder="@lang('Title')" value="{{ $detail->name }}" required>
                                         </div>
+                                        <div class="form-group">
+                                            <label>@lang('English Title')</label>
+                                            <input type="text" class="form-control" id="link-name" placeholder="English Title"
+                                                name="json_params[name][en]" autocomplete="off" value="{{ $detail->json_params->name->en ??"" }}"
+                                            >
+                                        </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">

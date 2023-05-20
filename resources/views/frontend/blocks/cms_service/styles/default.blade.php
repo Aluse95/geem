@@ -46,7 +46,7 @@
               <a
                 href="{{ $alias }}"
                 class="button button-border button-dark button-small font-title"
-                >Chi tiết</a
+                >@lang('Detail')</a
               >
             </div>
           </div>

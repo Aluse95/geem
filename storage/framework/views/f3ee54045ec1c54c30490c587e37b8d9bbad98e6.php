@@ -46,7 +46,7 @@
               <a
                 href="<?php echo e($alias); ?>"
                 class="button button-border button-dark button-small font-title"
-                >Chi tiết</a
+                ><?php echo app('translator')->get('Detail'); ?></a
               >
             </div>
           </div>

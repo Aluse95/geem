@@ -68,6 +68,9 @@
                       <input type="text" class="form-control" name="name" placeholder="@lang('Title')"
                         value="{{ old('name') }}" required>
                     </div>
+                    <input type="text" class="form-control" id="link-name" placeholder="English Title"
+                      name="json_params[name][en]" autocomplete="off"
+                    >
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">

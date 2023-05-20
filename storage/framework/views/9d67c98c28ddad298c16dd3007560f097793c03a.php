@@ -90,7 +90,7 @@
         <div class="container">
           <div class="quick-contact-widget dark clearfix">
             <div class="heading-block">
-              <h2 class="font-title">Liên hệ tư vấn</h2>
+              <h2 class="font-title"><?php echo app('translator')->get('Consultancy contact'); ?></h2>
             </div>
             <div class="form-result"></div>
             <form id="quick-contact-form"
@@ -106,7 +106,7 @@
               </div>
     
               <input type="text" class="required sm-form-control input-block-level not-dark valid"
-              id="name" name="name" value="" placeholder="Họ tên" required />
+              id="name" name="name" value="" placeholder="<?php echo app('translator')->get('Fullname'); ?>" required />
     
               <input
                 type="email"
@@ -124,7 +124,7 @@
                 id="phone"
                 name="phone"
                 value=""
-                placeholder="Điện thoại"
+                placeholder="<?php echo app('translator')->get('phone'); ?>"
                 required
               />
     
@@ -135,7 +135,7 @@
                 name="content"
                 rows="5"
                 cols="30"
-                placeholder="Lời nhắn"
+                placeholder="<?php echo app('translator')->get('Message'); ?>"
               ></textarea>
     
               <button
@@ -143,7 +143,7 @@
                 id="quick-contact-form-submit"
                 class="button button-border button-dark topmargin-sm font-title mx-auto d-block"
               >
-              Gửi
+              <?php echo app('translator')->get('Submit'); ?>
               </button>
               <input type="hidden" name="is_type" value="call_request">
             </form>

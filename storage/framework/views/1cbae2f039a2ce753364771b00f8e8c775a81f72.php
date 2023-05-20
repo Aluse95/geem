@@ -237,6 +237,11 @@
                         placeholder="<?php echo app('translator')->get('Url redirect title'); ?>"
                         value="<?php echo e(old('url_link_title') ?? $detail->url_link_title); ?>">
                     </div>
+                    <div class="form-group">
+                      <label>English Url title</label>
+                      <input type="text" class="form-control" name="json_params[url_link_title][en]"
+                        placeholder="<?php echo app('translator')->get('Url redirect title'); ?>" value="<?php echo e($detail->json_params->url_link_title->en ?? ''); ?>">
+                    </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">

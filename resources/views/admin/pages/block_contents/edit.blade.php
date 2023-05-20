@@ -230,6 +230,11 @@
                         placeholder="@lang('Url redirect title')"
                         value="{{ old('url_link_title') ?? $detail->url_link_title }}">
                     </div>
+                    <div class="form-group">
+                      <label>English Url title</label>
+                      <input type="text" class="form-control" name="json_params[url_link_title][en]"
+                        placeholder="@lang('Url redirect title')" value="{{ $detail->json_params->url_link_title->en ?? '' }}">
+                    </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">

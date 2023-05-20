@@ -24,8 +24,7 @@
   >
     <div class="heading-block">
       <h2 class="font-title text-center text-white">
-        <?php echo e($page_title); ?>
-
+        <?php echo app('translator')->get('Search'); ?>
         <?php if(isset($params['keyword']) && $params['keyword'] != ''): ?>
           <?php echo ': ' . $params['keyword']; ?>
 

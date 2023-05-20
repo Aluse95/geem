@@ -113,6 +113,14 @@
                       <input type="text" class="form-control" name="title" placeholder="<?php echo app('translator')->get('Title'); ?>"
                         value="<?php echo e($detail->title); ?>" required>
                     </div>
+                    
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><?php echo app('translator')->get('English Title'); ?></label>
+                      <input type="text" class="form-control" name="json_params[title][en]" placeholder="<?php echo app('translator')->get('Title'); ?>"
+                        value="<?php echo e($detail->json_params->title->en ??""); ?>" required>
+                    </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
@@ -255,6 +263,12 @@
                       <textarea name="json_params[brief][vi]" class="form-control" rows="5"><?php echo e(isset($detail->json_params->brief->vi) ? $detail->json_params->brief->vi : old('json_params[brief][vi]')); ?></textarea>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><?php echo app('translator')->get('English Description'); ?></label>
+                      <textarea name="json_params[brief][en]" class="form-control" rows="5"><?php echo e(isset($detail->json_params->brief->en) ? $detail->json_params->brief->en : old('json_params[brief][en]')); ?></textarea>
+                    </div>
+                  </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
@@ -264,6 +278,15 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label><?php echo app('translator')->get('English Content'); ?></label>
+                        <textarea name="json_params[content][en]" class="form-control" id="content_en"><?php echo e(isset($detail->json_params->content->en) ? $detail->json_params->content->en : old('json_params[content][en]')); ?></textarea>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="col-md-12">
                     <hr style="border-top: dashed 2px #a94442; margin: 10px 0px;">
                   </div>
@@ -418,6 +441,7 @@
 <?php $__env->startSection('script'); ?>
   <script>
     CKEDITOR.replace('content_vi', ck_options);
+    CKEDITOR.replace('content_en', ck_options);
     // Change to filter
     $(document).ready(function() {
 

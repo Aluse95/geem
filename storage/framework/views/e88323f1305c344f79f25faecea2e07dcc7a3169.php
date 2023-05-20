@@ -4,7 +4,6 @@
     $brief = $block->json_params->brief->{$locale} ?? $block->brief;
     $url_link = $block->url_link != '' ? $block->url_link : '';
     $url_link_title = $block->json_params->url_link_title->{$locale} ?? $block->url_link_title;
-    
     $taxonomy = App\Models\CmsTaxonomy::where('taxonomy', 'resource')->first();
     $params['status'] = App\Consts::POST_STATUS['active'];
     $params['is_featured'] = true;

@@ -88,6 +88,11 @@
                       <input type="text" class="form-control" name="title" placeholder="<?php echo app('translator')->get('Title'); ?>"
                         value="<?php echo e(old('title')); ?>" required>
                     </div>
+                    <div class="form-group">
+                      <label><?php echo app('translator')->get('English Title'); ?></label>
+                      <input type="text" class="form-control" name="json_params[title][en]" placeholder="<?php echo app('translator')->get('Title'); ?>"
+                        value="<?php echo e(old('json_params[title][en]')); ?>" required>
+                    </div>
 
                     <div class="form-group">
                       <label><?php echo app('translator')->get('Order'); ?></label>

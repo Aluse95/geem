@@ -28,7 +28,7 @@
     
   >
     <div class="heading-block">
-      <h2 class="font-title text-center text-white"><?php echo e($page_title); ?></h2>
+      <h2 class="font-title text-center text-white"><?php echo app('translator')->get('Contact'); ?></h2>
     </div>
   </section>
 
@@ -39,7 +39,7 @@
       <div class="container">
         <div class="row gutter-40 col-mb-80">
           <div class="postcontent col-lg-9">
-            <h3>LIÊN HỆ TRỰC TUYẾN</h3>
+            <h3 class="text-uppercase"><?php echo app('translator')->get('Online contact'); ?></h3>
             <div class="">
               <div class="form-result"></div>
               <form class="mb-0 form_ajax" method="post" action="<?php echo e(route('frontend.contact.store')); ?>">
@@ -72,7 +72,7 @@
                   <div class="col-12 form-group">
                     <button class="button button-border button-rounded button-fill button-green m-0 ls0 text-uppercase"
                       type="submit" name="submit" value="submit">
-                      <span>Gửi liên hệ</span>
+                      <span><?php echo app('translator')->get('Submit'); ?></span>
                     </button>
                   </div>
                 </div>

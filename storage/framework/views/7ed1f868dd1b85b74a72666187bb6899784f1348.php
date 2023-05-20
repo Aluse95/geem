@@ -67,13 +67,13 @@
                 $content = '';
                 foreach ($footer_menu as $main_menu) {
                   $url = $title = '';
-                  $title = isset($main_menu->json_params->title->{$locale}) && $main_menu->json_params->title->{$locale} != '' ? $main_menu->json_params->title->{$locale} : $main_menu->name;
+                  $title = $main_menu->json_params->name->{$locale} ?? $main_menu->name;
 
                   $content .= '<h4>' . $title . '</h4>';
                   $content .= '<ul class="widget_links mb-0">';
                   foreach ($menu as $item) {
                     if ($item->parent_id == $main_menu->id) {
-                      $title = isset($item->json_params->title->{$locale}) && $item->json_params->title->{$locale} != '' ? $item->json_params->title->{$locale} : $item->name;
+                      $title = $item->json_params->name->{$locale} ?? $item->name;
                       $url = $item->url_link;
                       $active = $url == url()->current() ? 'active' : '';
           
@@ -95,13 +95,13 @@
               <abbr
                 title="Headquarters"
                 style="display: inline-block; margin-bottom: 7px"
-                ><strong>Địa chỉ:</strong></abbr
+                ><strong><?php echo app('translator')->get('Address'); ?>:</strong></abbr
               ><br />
               <?php echo e($web_information->information->address ?? ''); ?>
 
             </address>
 
-            <abbr title="Phone Number"><strong>Điện thoại:</strong></abbr
+            <abbr title="Phone Number"><strong><?php echo app('translator')->get('Phone'); ?>:</strong></abbr
             ><?php echo e($web_information->information->phone ?? ''); ?><br />
             <abbr title="Email Address"><strong>Email:</strong></abbr>
             <?php echo e($web_information->information->email ?? ''); ?>

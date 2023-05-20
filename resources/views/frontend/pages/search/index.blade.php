@@ -24,7 +24,7 @@
   >
     <div class="heading-block">
       <h2 class="font-title text-center text-white">
-        {{ $page_title }}
+        @lang('Search')
         @if (isset($params['keyword']) && $params['keyword'] != '')
           {!! ': ' . $params['keyword'] !!}
         @endif

@@ -34,20 +34,22 @@
           <!-- #top-search end -->
 
           <div class="lang">
-            {{-- <button @if(empty($_GET['lang'])) onclick="location.href='{{ url()->full() }}?lang=en'" @endif class="english-btn {{ isset($_GET['lang'])?"lang_active":"" }}">EN</button>
-            <button onclick="location.href='/'"class="vietnam-btn {{ empty($_GET['lang'])?"lang_active":"" }}">VN</button> --}}
-            <div class="lang-img">
-              <img
-                src="https://cdn.britannica.com/41/4041-050-BB4577F8/Flag-Vietnam.jpg"
-                alt="vietnamese"
-              />
-            </div>
-            <div class="lang-img">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1280px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png"
-                alt="english"
-              />
-            </div>
+            <a href="{{ route('frontend.language', ['locale' => 'vi']) }}">
+              <div class="lang-img">
+                <img
+                  src="https://cdn.britannica.com/41/4041-050-BB4577F8/Flag-Vietnam.jpg"
+                  alt="vietnamese"
+                />
+              </div>
+            </a>
+            <a href="{{ route('frontend.language', ['locale' => 'en']) }}">
+              <div class="lang-img">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1280px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png"
+                  alt="english"
+                />
+              </div>
+            </a>
           </div>
         </div>
 
@@ -77,7 +79,7 @@
                   foreach ($menu as $item) {
                     $url = $title = '';
                     if ($item->parent_id == $main_menu->id) {
-                      $title = isset($item->json_params->title->{$locale}) && $item->json_params->title->{$locale} != '' ? $item->json_params->title->{$locale} : $item->name;
+                      $title = $item->json_params->name->{$locale} ?? $item->name;
                       $url = $item->url_link;
 
                       if(isset($item->json_params->style) && $item->json_params->style == 'normal') {
@@ -88,7 +90,7 @@
                             foreach ($menu as $item_sub) {
                               $url = $title = '';
                               if($item_sub->parent_id == $item->id) {
-                                $title = isset($item_sub->json_params->title->{$locale}) && $item_sub->json_params->title->{$locale} != '' ? $item_sub->json_params->title->{$locale} : $item_sub->name;
+                                $title = $item_sub->json_params->name->{$locale} ?? $item_sub->name;
                                 $url = $item_sub->url_link;
                                 $content .= '<li class="menu-item"><a class="menu-link" href="' . $url . '"><div>' . $title . '</div></a>';
                                 if ($item_sub->sub > 0) {
@@ -96,7 +98,7 @@
                                   foreach ($menu as $item_sub_2) {
                                       $url = $title = '';
                                       if ($item_sub_2->parent_id == $item_sub->id) {
-                                          $title = isset($item_sub_2->json_params->title->{$locale}) && $item_sub_2->json_params->title->{$locale} != '' ? $item_sub_2->json_params->title->{$locale} : $item_sub_2->name;
+                                        $title = $item_sub_2->json_params->name->{$locale} ?? $item_sub_2->name;
                                           $url = $item_sub_2->url_link;
       
                                           $content .= '<li class="menu-item"><a class="menu-link" href="' . $url . '"><div>' . $title . '</div></a></li>';
@@ -122,20 +124,19 @@
                             foreach ($menu as $item_sub) {
                               $url = $title = '';
                               if($item_sub->parent_id == $item->id) {
-                                $title = isset($item_sub->json_params->title->{$locale}) && $item_sub->json_params->title->{$locale} != '' ? $item_sub->json_params->title->{$locale} : $item_sub->name;
+                                $title = $item_sub->json_params->name->{$locale} ?? $item_sub->name;
                                 $url = $item_sub->url_link;
                                 $content .= '<ul class="sub-menu-container mega-menu-column col-lg-3">';
                                 $content .= '<li class="menu-item mega-menu-title"><a class="menu-link" href="' . $url . '"><div>' . $title . '</div></a>';
                                 if ($item_sub->sub > 0) {
                                   $content .= '<ul class="sub-menu-container">';
                                   foreach ($menu as $item_sub_2) {
-                                      $url = $title = '';
-                                      if ($item_sub_2->parent_id == $item_sub->id) {
-                                          $title = isset($item_sub_2->json_params->title->{$locale}) && $item_sub_2->json_params->title->{$locale} != '' ? $item_sub_2->json_params->title->{$locale} : $item_sub_2->name;
-                                          $url = $item_sub_2->url_link;
-      
-                                          $content .= '<li class="menu-item"><a class="menu-link" href="' . $url . '"><div>' . $title . '</div></a></li>';
-                                      }
+                                    $url = $title = '';
+                                    if ($item_sub_2->parent_id == $item_sub->id) {
+                                      $title = $item_sub_2->json_params->name->{$locale} ?? $item_sub_2->name;
+                                      $url = $item_sub_2->url_link;
+                                      $content .= '<li class="menu-item"><a class="menu-link" href="' . $url . '"><div>' . $title . '</div></a></li>';
+                                    }
                                   }
                                   $content .= '</ul>';
                                 }

@@ -50,7 +50,7 @@
           </div>
 
           <input type="text" class="required sm-form-control input-block-level not-dark valid"
-          id="name" name="name" value="" placeholder="Họ tên" required />
+            id="name" name="name" value="" placeholder="<?php echo app('translator')->get('Fullname'); ?>" required />
 
           <input
             type="email"
@@ -68,7 +68,7 @@
             id="phone"
             name="phone"
             value=""
-            placeholder="Điện thoại"
+            placeholder="<?php echo app('translator')->get('phone'); ?>"
             required
           />
 
@@ -79,7 +79,7 @@
             name="content"
             rows="5"
             cols="30"
-            placeholder="Lời nhắn"
+            placeholder="<?php echo app('translator')->get('Message'); ?>"
           ></textarea>
 
           <button

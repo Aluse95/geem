@@ -84,6 +84,11 @@
                       <input type="text" class="form-control" name="title" placeholder="@lang('Title')"
                         value="{{ $detail->title }}" required>
                     </div>
+                    <div class="form-group">
+                      <label>@lang('English Title')</label>
+                      <input type="text" class="form-control" name="json_params[title][en]" placeholder="@lang('Title')"
+                        value="{{ $detail->json_params->title->en ??"" }}" required>
+                    </div>
 
                     <div class="form-group">
                       <label>@lang('Order')</label>

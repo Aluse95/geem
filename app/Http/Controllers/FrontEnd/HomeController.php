@@ -21,8 +21,10 @@ class HomeController extends Controller
         return $this->responseView('frontend.pages.home.index');
     }
 
-    public function language() 
+    public function language(Request $request, $locale)
     {
+        $request->session()->put('locale', $locale);
 
+        return back();
     }
 }

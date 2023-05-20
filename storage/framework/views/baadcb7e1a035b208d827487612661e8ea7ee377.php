@@ -118,6 +118,25 @@
                         value="<?php echo e(old('title')); ?>" required>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><?php echo app('translator')->get('English Title'); ?></label>
+                      <input type="text" class="form-control" name="json_params[title][en]" placeholder="<?php echo app('translator')->get('Title'); ?>"
+                        value="<?php echo e(old('json_params[title][en]')); ?>" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>URL tùy chọn</label>
+                      <i class="fa fa-coffee text-red" aria-hidden="true"></i>
+                      <small class="form-text">
+                        (
+                        <i class="fa fa-info-circle"></i>
+                        Maximum 100 characters in the group: "A-Z", "a-z", "0-9" and "-_" )
+                      </small>
+                      <input name="alias" class="form-control" value="<?php echo e($detail->alias ?? old('alias')); ?>" />
+                    </div>
+                  </div>
                   <div class="col-md-6 hidden">
                     <div class="form-group">
                       <div class="row">
@@ -132,18 +151,6 @@
                             placeholder="<?php echo app('translator')->get('Price Old'); ?>" value="<?php echo e(old('json_params[price_old]')); ?>">
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>URL tùy chọn</label>
-                      <i class="fa fa-coffee text-red" aria-hidden="true"></i>
-                      <small class="form-text">
-                        (
-                        <i class="fa fa-info-circle"></i>
-                        Maximum 100 characters in the group: "A-Z", "a-z", "0-9" and "-_" )
-                      </small>
-                      <input name="alias" class="form-control" value="<?php echo e($detail->alias ?? old('alias')); ?>" />
                     </div>
                   </div>
 
@@ -255,6 +262,12 @@
                       <textarea name="json_params[brief][vi]" class="form-control" rows="5"><?php echo e(old('json_params[brief][vi]')); ?></textarea>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><?php echo app('translator')->get('English Description'); ?></label>
+                      <textarea name="json_params[brief][en]" class="form-control" rows="5"><?php echo e(old('json_params[brief][en]')); ?></textarea>
+                    </div>
+                  </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
@@ -264,6 +277,15 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label><?php echo app('translator')->get('English Content'); ?></label>
+                        <textarea name="json_params[content][en]" class="form-control" id="content_en"><?php echo e(old('json_params[content][en]')); ?></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  
                   <div class="col-md-12">
                     <hr style="border-top: dashed 2px #a94442; margin: 10px 0px;">
                   </div>
@@ -436,6 +458,7 @@
 <?php $__env->startSection('script'); ?>
   <script>
     CKEDITOR.replace('content_vi', ck_options);
+    CKEDITOR.replace('content_en', ck_options);
 
     $(document).ready(function() {
 

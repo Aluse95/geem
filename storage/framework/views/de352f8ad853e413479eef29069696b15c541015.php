@@ -339,6 +339,12 @@
                                             <input type="text" class="form-control" name="name"
                                                 placeholder="<?php echo app('translator')->get('Title'); ?>" value="<?php echo e($detail->name); ?>" required>
                                         </div>
+                                        <div class="form-group">
+                                            <label><?php echo app('translator')->get('English Title'); ?></label>
+                                            <input type="text" class="form-control" id="link-name" placeholder="English Title"
+                                                name="json_params[name][en]" autocomplete="off" value="<?php echo e($detail->json_params->name->en ??""); ?>"
+                                            >
+                                        </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">

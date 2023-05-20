@@ -110,6 +110,13 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
+                      <label>@lang('English Title')</label>
+                      <input type="text" class="form-control" name="json_params[title][en]" placeholder="@lang('Title')"
+                        value="{{ old('json_params[title][en]') }}" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
                       <label>@lang('Status')</label>
                       <div class="form-control">
                         <label>
@@ -247,12 +254,26 @@
                       <textarea name="json_params[brief][vi]" class="form-control" rows="5">{{ old('json_params[brief][vi]') }}</textarea>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>@lang('English Description')</label>
+                      <textarea name="json_params[brief][en]" class="form-control" rows="5">{{ old('json_params[brief][en]') }}</textarea>
+                    </div>
+                  </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
                       <div class="form-group">
                         <label>@lang('Content')</label>
                         <textarea name="json_params[content][vi]" class="form-control" id="content_vi">{{ old('json_params[content][vi]') }}</textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label>@lang('English Content')</label>
+                        <textarea name="json_params[content][en]" class="form-control" id="content_en">{{ old('json_params[content][en]') }}</textarea>
                       </div>
                     </div>
                   </div>
@@ -395,6 +416,7 @@
 @section('script')
   <script>
     CKEDITOR.replace('content_vi', ck_options);
+    CKEDITOR.replace('content_en', ck_options);
 
     // Change to filter
     $(document).ready(function() {

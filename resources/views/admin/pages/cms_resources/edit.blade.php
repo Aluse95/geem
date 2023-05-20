@@ -115,6 +115,13 @@
                         value="{{ $detail->title }}" required>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>@lang('English Title')</label>
+                      <input type="text" class="form-control" name="json_params[title][en]" placeholder="@lang('Title')"
+                        value="{{ $detail->json_params->title->en ??"" }}" required>
+                    </div>
+                  </div>
                   <div class="col-md-6 hidden">
                     <div class="form-group">
                       <div class="row">
@@ -145,8 +152,6 @@
                       <input name="alias" class="form-control" value="{{ $detail->alias ?? old('alias') }}" />
                     </div>
                   </div>
-
-
                   <div class="col-md-6">
 
                     <div class="form-group">
@@ -265,6 +270,12 @@
                       <textarea name="json_params[brief][vi]" class="form-control" rows="5">{{ isset($detail->json_params->brief->vi) ? $detail->json_params->brief->vi : old('json_params[brief][vi]') }}</textarea>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>@lang('English Description')</label>
+                      <textarea name="json_params[brief][en]" class="form-control" rows="5">{{ isset($detail->json_params->brief->en) ? $detail->json_params->brief->en : old('json_params[brief][en]') }}</textarea>
+                    </div>
+                  </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
@@ -274,6 +285,15 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label>@lang('English Content')</label>
+                        <textarea name="json_params[content][en]" class="form-control" id="content_en">{{ isset($detail->json_params->content->en) ? $detail->json_params->content->en : old('json_params[content][en]') }}</textarea>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="col-md-12">
                     <hr style="border-top: dashed 2px #a94442; margin: 10px 0px;">
                   </div>
@@ -458,6 +478,7 @@
 @section('script')
   <script>
     CKEDITOR.replace('content_vi', ck_options);
+    CKEDITOR.replace('content_en', ck_options);
 
     $(document).ready(function() {
 
